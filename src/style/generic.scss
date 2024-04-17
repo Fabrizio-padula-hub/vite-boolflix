@@ -3,3 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+// Containers
+.big-container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.small-container{
+    width: 75%;
+    margin: 0 auto;
+}
+
+// utility class
+.my-d-flex{
+    display: flex;
+}
