@@ -1,9 +1,15 @@
 <script>
+import { store } from "../store.js";
 import SingleCard from "./SingleCard.vue";
 export default{
     name: 'AppMainCard',
     components: {
         SingleCard
+    },
+    data(){
+        return{
+            store
+        }
     }
 }
 </script>

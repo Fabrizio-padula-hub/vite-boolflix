@@ -8,7 +8,7 @@ export default{
 
     <div class="card">
         <div class="img-space">
-            
+            <img src="https://image.tmdb.org/t/p/w500/cNYYPcbcfT90wTyI6hUmJH5Fx8H.jpg" alt="">
         </div>
 
         <div class="info-card">
@@ -32,7 +32,13 @@ export default{
 
     .img-space{
         border: 1px solid white;
-        height: 170px;
+        height: 210px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
     .info-card{
         margin-top: 10px;
