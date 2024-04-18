@@ -1,6 +1,12 @@
 <script>
+import { store } from "../store.js";
 export default{
     name: 'AppHeader',
+    data(){
+        return{
+            store
+        }
+    }
 }
 </script>
 
@@ -10,8 +16,8 @@ export default{
         <div class="big-container my-d-flex">
             <h1>Boolflix</h1>
             <div>
-                <input type="text" placeholder="Ricerca il film o serie tv">
-                <button>Cerca</button>
+                <input type="text" placeholder="Ricerca il film o serie tv" v-model="store.searchUser">
+                <button @click="$emit('searchText')" >Cerca</button>
             </div>
         </div>
     </header>

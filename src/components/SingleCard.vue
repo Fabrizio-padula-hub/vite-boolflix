@@ -1,6 +1,9 @@
 <script>
 export default{
     name: 'SingleCard',
+    props: {
+        infoCard: Object
+    }
 }
 </script>
 
@@ -12,11 +15,11 @@ export default{
         </div>
 
         <div class="info-card">
-            <h4>[Titolo]</h4>
-            <h5>[Titolo Originale]</h5>
+            <h4>{{ infoCard.title }}</h4>
+            <h5>{{ infoCard.original_title }}</h5>
             <div>
-                [Lingua]
-                [Voto]
+                {{ infoCard.original_language }}
+                {{ infoCard.vote_average }}
             </div>
         </div>
     </div>

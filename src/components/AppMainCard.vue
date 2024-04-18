@@ -18,15 +18,7 @@ export default{
 
     <section class="all-cards">
         <div class="small-container my-d-flex">
-            <SingleCard></SingleCard>
-            <SingleCard></SingleCard>
-            <SingleCard></SingleCard>
-            <SingleCard></SingleCard>
-            <SingleCard></SingleCard>
-            <SingleCard></SingleCard>
-            <SingleCard></SingleCard>
-            <SingleCard></SingleCard>
-            <SingleCard></SingleCard>
+            <SingleCard v-for="movies in store.elementsList" :key="movies.id" :infoCard="movies"></SingleCard>
         </div>
         
 

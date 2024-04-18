@@ -19,7 +19,7 @@ export default{
       // stabilire i parametri della chiamata
       const queryParams = {
         api_key: '3a769a04aabe04949f491739be006f35',
-        query: 'Ritorno'
+        query: store.searchUser
       }
       // fare la chiamata
       axios.get('https://api.themoviedb.org/3/search/movie',{
@@ -27,21 +27,14 @@ export default{
       })
       .then((response) => {
         store.elementsList = response.data.results;
-        console.log(store.elementsList)
       });
     }
-  },
-  mounted(){
-    this.getElementsFromApi();
   }
-
-  
-  
 }
 </script>
 
 <template>
-  <AppHeader></AppHeader>
+  <AppHeader @searchText="getElementsFromApi()"></AppHeader>
 
   <main>
     <AppMainCard></AppMainCard>
