@@ -3,6 +3,21 @@ export default{
     name: 'SingleCard',
     props: {
         infoCard: Object
+    },
+    data(){
+        return{
+            flagsSup: [
+                'it',
+                'en',
+                'es'
+            ]
+        }
+    },
+    methods:{
+        getFlagUrl() {
+            let flagImage = this.infoCard.original_language + '.png';
+	        return new URL(`../assets/img-flags/${flagImage}`, import.meta.url).href   
+        }
     }
 }
 </script>
@@ -11,15 +26,25 @@ export default{
 
     <div class="card">
         <div class="img-space">
-            <img src="https://image.tmdb.org/t/p/w500/cNYYPcbcfT90wTyI6hUmJH5Fx8H.jpg" alt="">
+            <img src="https://image.tmdb.org/t/p/w342/cNYYPcbcfT90wTyI6hUmJH5Fx8H.jpg" alt="">
         </div>
 
         <div class="info-card">
-            <h4>{{ infoCard.title }}</h4>
-            <h5>{{ infoCard.original_title }}</h5>
+            <!-- titolo -->
+            <h4 v-if="infoCard.title">{{ infoCard.title }}</h4>
+            <h4 v-else>{{ infoCard.name }}</h4>
+            <!-- titolo originale -->
+            <h5 v-if="infoCard.original_title">{{ infoCard.original_title }}</h5>
+            <h5 v-else>{{ infoCard.original_name }}</h5>
+            <!-- lingua e voto -->
             <div>
-                {{ infoCard.original_language }}
-                {{ infoCard.vote_average }}
+                <div class="language">
+                    {{ infoCard.original_language }}
+                    <img v-if="flagsSup.includes(infoCard.original_language)" :src="getFlagUrl()" alt="infoCard.original_language">
+                    <span v-else>{{ infoCard.original_language }}</span>
+                </div>
+                <span>Voto: {{ infoCard.vote_average }}</span>
+                
             </div>
         </div>
     </div>
@@ -46,12 +71,13 @@ export default{
     .info-card{
         margin-top: 10px;
 
+        img{
+            width: 22px;
+        }
+
         h4{
             margin-bottom: 10px;
         }
     }
-
 }
-
-
 </style>

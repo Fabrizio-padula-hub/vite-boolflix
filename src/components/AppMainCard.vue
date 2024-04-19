@@ -17,8 +17,20 @@ export default{
 <template>
 
     <section class="all-cards">
+        <div class="small-container">
+            <h2>Film</h2>
+        </div>
+        
         <div class="small-container my-d-flex">
-            <SingleCard v-for="movies in store.elementsList" :key="movies.id" :infoCard="movies"></SingleCard>
+            <SingleCard v-for="movies in store.elementsListMuvies" :key="movies.id" :infoCard="movies"></SingleCard>
+        </div>
+
+        <div class="small-container">
+            <h2>Serie Tv</h2>
+        </div>
+
+        <div class="small-container my-d-flex">
+            <SingleCard v-for="series in store.elementsListSeries" :key="series.id" :infoCard="series"></SingleCard>
         </div>
         
 
@@ -31,9 +43,12 @@ export default{
 .all-cards{
     background-color: $bg-secondary;
 
+    h2{
+        color: white;
+    }
+
     .small-container{
         flex-wrap: wrap;
-        justify-content: space-between;
         gap: 20px;
     }
 }

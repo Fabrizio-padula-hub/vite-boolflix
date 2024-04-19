@@ -21,12 +21,21 @@ export default{
         api_key: '3a769a04aabe04949f491739be006f35',
         query: store.searchUser
       }
-      // fare la chiamata
+
+      // fare la chiamata per i film
       axios.get('https://api.themoviedb.org/3/search/movie',{
         params: queryParams 
       })
       .then((response) => {
-        store.elementsList = response.data.results;
+        store.elementsListMuvies = response.data.results;
+      });
+
+      // fare la chiamata per le serie tv
+      axios.get('https://api.themoviedb.org/3/search/tv',{
+        params: queryParams 
+      })
+      .then((response) => {
+        store.elementsListSeries = response.data.results;
       });
     }
   }
