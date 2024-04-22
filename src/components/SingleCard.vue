@@ -26,7 +26,8 @@ export default{
 
     <div class="card">
         <div class="img-space">
-            <img src="https://image.tmdb.org/t/p/w342/cNYYPcbcfT90wTyI6hUmJH5Fx8H.jpg" alt="">
+            <img v-if="infoCard.poster_path" :src="`https://image.tmdb.org/t/p/w342${infoCard.poster_path}`" alt="">
+            <div v-else> Immagine non disponibile</div>
         </div>
 
         <div class="info-card">
